@@ -44,7 +44,13 @@ const handleUserInput = function (key) {
     connection.write("Say: LOL");
   }
   if (key === 'b') {
-    connection.write("Say: LAG");
+    connection.write("Say: lag");
+  }
+  if (key === 'o') {
+    connection.write("Say: oof");
+  }
+  if (key === 'i') {
+    connection.write("Say: rip");
   }
 };
 
