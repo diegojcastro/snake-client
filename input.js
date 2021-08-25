@@ -1,6 +1,7 @@
 
 // Stores the active TCP connection object.
 let connection;
+let inputDirection;
 
 const setupInput = function (conn) {
   connection = conn;
@@ -19,25 +20,31 @@ const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }
-  if (key === 'w') {
+  if (key === 'r') {
     setInterval(() => {
-      connection.write("Move: up")
-  }, 100);
+      connection.write(`Move: ${inputDirection}`)
+  }, 70);
+  }
+  if (key === 'w') {
+    inputDirection = 'up';
   }
   if (key === 'a') {
-    connection.write("Move: left");
+    inputDirection = 'left';
   }
   if (key === 's') {
-    connection.write("Move: down");
+    inputDirection = 'down';
   }
   if (key === 'd') {
-    connection.write("Move: right");
+    inputDirection = 'right';
   }
   if (key === 'g') {
     connection.write("Say: GG");
   }
   if (key === 'l') {
     connection.write("Say: LOL");
+  }
+  if (key === 'b') {
+    connection.write("Say: LAG");
   }
 };
 
